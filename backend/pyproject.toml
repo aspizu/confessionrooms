@@ -8,7 +8,9 @@ authors = [
 ]
 requires-python = ">=3.13"
 dependencies = [
+    "gunicorn>=23.0.0",
     "reproca",
+    "uvicorn>=0.35.0",
 ]
 
 [build-system]
@@ -17,8 +19,3 @@ build-backend = "uv_build"
 
 [tool.uv.sources]
 reproca = { git = "https://github.com/aspizu/reproca", branch = "development" }
-
-[dependency-groups]
-dev = [
-    "uvicorn>=0.35.0",
-]

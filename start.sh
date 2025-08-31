@@ -14,7 +14,7 @@ kill -9 "$(< /tmps/confessionrooms_backend.pid)"
 set -e
 uv sync
 uv pip install -e .
-uv run python -m gunicorn src.thesocialnetwork:app \
+uv run python -m gunicorn src.confessionrooms:app \
   -k uvicorn.workers.UvicornWorker \
   -b unix:/tmp/confessionrooms_backend.sock \
   --log-file /var/log/gunicorn.log \
