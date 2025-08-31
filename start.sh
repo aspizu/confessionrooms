@@ -10,7 +10,7 @@ chmod -R 755 /var/www/html/confessionrooms
 cd ..
 cd backend
 set +e
-kill -9 "$(< /tmps/confessionrooms_backend.pid)"
+kill -9 "$(< /tmp/confessionrooms_backend.pid)"
 set -e
 uv sync
 uv pip install -e .
