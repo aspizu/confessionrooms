@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import secrets
 from pathlib import Path
 
@@ -10,6 +11,8 @@ from starlette.requests import Request
 
 from .db import Db
 from .utils import now
+
+os.chdir(Path(__file__).parent.parent.parent)
 
 
 class User(msgspec.Struct):
@@ -134,6 +137,4 @@ app = create_starlette_application(sessions, base="/confessionrooms/api/")
 
 
 # --- TypeScript code generation on first server start ---
-generate_typescript_bindings(
-    Path(__file__).joinpath("../../../../frontend/src/services/api.gen.ts"),
-)
+generate_typescript_bindings("../frontend/src/services/api.gen.ts")
